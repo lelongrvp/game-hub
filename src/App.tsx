@@ -12,7 +12,7 @@ const App = () => {
       }}
           templateColumns={{
             base: "1fr",
-            lg: "200px 1fr"
+            lg: "fit-content 1fr"
       }}>
       <GridItem area="nav">
         <NavBar/>
