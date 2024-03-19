@@ -9,15 +9,15 @@ interface Props {
 const GenreList = ({ onSelectedGenre }: Props) => {
   const { data, isLoading, error } = useGenres()
 
-  if(error) return null
-  if(isLoading) { return <Spinner/> }
-  
+  if (error) return null
+  if (isLoading) { return <Spinner /> }
+
   return (
     <List>
-      {data.map(genre => ( 
+      {data.map(genre => (
         <ListItem key={genre.id} paddingY='10px'>
           <HStack>
-            <Image boxSize='32px' borderRadius='8px' src={getCroppedImageUrl(genre.image_background)}/> 
+            <Image boxSize='32px' borderRadius='8px' src={getCroppedImageUrl(genre.image_background)} />
             <Button onClick={() => onSelectedGenre(genre)} variant="link" fontSize='lg'>{genre.name}</Button>
           </HStack>
         </ListItem>))}
