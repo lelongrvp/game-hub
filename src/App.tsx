@@ -12,23 +12,23 @@ const App = () => {
 
   return (
     <Grid templateAreas={{
-        base: `"nav" "main"`,
-        lg: `"nav nav" "aside main"`
-      }}
-          templateColumns={{
-            base: "1fr",
-            lg: "fit-content 1fr"
+      base: `"nav" "main"`,
+      lg: `"nav nav" "aside main"`
+    }}
+      templateColumns={{
+        base: "1fr",
+        lg: "fit-content 1fr"
       }}>
       <GridItem area="nav">
-        <NavBar/>
+        <NavBar />
       </GridItem>
-      <Show above="lg">  
+      <Show above="lg">
         <GridItem area="aside" paddingX={5}>
-          <GenreList onSelectedGenre={(genre) => setSelectedGenre(genre)}/>
+          <GenreList onSelectedGenre={(genre) => setSelectedGenre(genre)} />
         </GridItem>
       </Show>
       <GridItem area="main">
-        <GameGrid selectedGenre={selectedGenre}/>
+        <GameGrid selectedGenre={selectedGenre} />
       </GridItem>
     </Grid>
   )

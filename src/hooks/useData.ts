@@ -18,21 +18,21 @@ const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?:
     setLoading(true)
 
     apiClient
-      .get<FetchDataResponse<T>>(endpoint, {signal: controller.signal, ...requestConfig})
+      .get<FetchDataResponse<T>>(endpoint, { signal: controller.signal, ...requestConfig })
       .then(res => {
         setData(res.data.results);
         setLoading(false)
       })
       .catch(err => {
-        if(err instanceof CanceledError) return;
-        setError(err.message); 
+        if (err instanceof CanceledError) return;
+        setError(err.message);
         setLoading(false)
       })
     return () => controller.abort()
-    
+
   }, deps ? [...deps] : [])
 
-    return {data, error, isLoading}
+  return { data, error, isLoading }
 
 }
 
